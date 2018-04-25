@@ -31,6 +31,8 @@ public class FMAbhaya {
             con.put("`P" ,"ඦ"); // added
             con.put("`v" ,"ඬ"); // added
             con.put("`\\." ,"ඟ"); // added
+            con.put("`M", "ළු");
+            con.put("M" ,"ඵ");
             con.put("`y" ,"ඟ"); // not sure if this is correct -sagnaka ha does not exist
             con.put("P" ,"ඡ"); //=
             con.put("X" ,"ඞ");
@@ -43,7 +45,6 @@ public class FMAbhaya {
             con.put("L" ,"ඛ");
             con.put("<" ,"ළ");
             con.put("K" ,"ණ");
-            con.put("M" ,"ඵ");
             con.put("G" ,"ඨ");
             con.put("¿" ,"ළු");
             con.put("Y" ,"ශ");
@@ -305,7 +306,7 @@ public class FMAbhaya {
 		text = text.replaceAll("â", "ඞ්");
 		text = text.replaceAll("å", "ඬ්");
 		text = text.replaceAll("`Ù", "ඬ්");
-		text = text.replaceAll("Ù", "ඩ්");
+		text = text.replaceAll("Ù", "ඞ");
 		text = text.replaceAll("¾", "ර්");
 		text = text.replaceAll("Ä", "ඛ්");
 		text = text.replaceAll("É", "ච්");
