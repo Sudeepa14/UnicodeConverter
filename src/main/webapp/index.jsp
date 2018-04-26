@@ -1,8 +1,17 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="/manifest.json">
+<link rel="shortcut icon" href="/favicon.ico">
+<title>React App</title>
+<link href="static/css/main.60c94c3b.css" rel="stylesheet">
+</head>
 <body>
-    <h2>Jersey RESTful Web Application!</h2>
-    <p><a href="webapi/myresource">Jersey resource</a>
-    <p>Visit <a href="http://jersey.java.net">Project Jersey website</a>
-    for more information on Jersey!
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root">
+</div><script type="text/javascript" src="static/js/main.d9dc8d82.js">
+</script>
 </body>
 </html>
