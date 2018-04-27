@@ -35,7 +35,7 @@ import word.WDXToUnicode;
  */
 @Path("fileupload")
 public class FIleUpload {
-	
+	String rootStorage = "/home/cse14/storage/";
 	@POST
 	@Path("/docx")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -45,9 +45,9 @@ public class FIleUpload {
 		Message mes = new Message();
         Random rand = new Random();
         int randval = rand.nextInt(1000);
-		String outPutFileName ="docx/"+randval+"converted"+fileDetail.getFileName();
+		String outPutFileName =rootStorage+"docx/"+randval+"converted"+fileDetail.getFileName();
 		
-		File theDir = new File("docx");
+		File theDir = new File(rootStorage+"docx/");
 
 		// if the directory does not exist, create it
 		if (!theDir.exists()) {
@@ -55,7 +55,7 @@ public class FIleUpload {
 		    boolean result = false;
 
 		    try{
-		        theDir.mkdir();
+		        theDir.mkdirs();
 		        result = true;
 		    } 
 		    catch(SecurityException se){
@@ -63,7 +63,8 @@ public class FIleUpload {
 		    	se.printStackTrace();
 		    }        
 		    if(result) {    
-		        System.out.println("DIR created");  
+		        System.out.println("DIR created"); 
+		        
 		    }
 		}
 
@@ -103,7 +104,7 @@ public class FIleUpload {
 	public Response test(@PathParam("folder") String folder, @PathParam("filename") String filename) {
 		
       
-		String filePath = folder+"/"+filename;
+		String filePath = rootStorage+folder+"/"+filename;
 		File file = new File(filePath);
 		System.out.println("Downloaading...........");
 		ResponseBuilder response = Response.ok((Object) file);
