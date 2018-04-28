@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Random;
@@ -42,6 +44,10 @@ public class FIleUpload {
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	public Response uploadtest(@FormDataParam("file") InputStream file, @FormDataParam("file") FormDataContentDisposition fileDetail) {
 		
+		StringWriter sw = new StringWriter();					// for stacktrace
+		PrintWriter pw = new PrintWriter(sw);					//TODO should be removed after fixing the bug
+		
+		
 		Message mes = new Message();
         Random rand = new Random();
         int randval = rand.nextInt(1000);
@@ -64,7 +70,6 @@ public class FIleUpload {
 		    }        
 		    if(result) {    
 		        System.out.println("DIR created"); 
-		        
 		    }
 		}
 
@@ -72,8 +77,10 @@ public class FIleUpload {
                 XWPFDocument docx = new XWPFDocument(file);
                 WDXToUnicode docxConverter = new WDXToUnicode(docx);
                 XWPFDocument convertedFile = docxConverter.startConversion();
-                try {
-                	FileOutputStream out = new FileOutputStream(outPutFileName);
+                File outputFile = new File(outPutFileName);
+                outputFile.createNewFile();
+       		try {
+                	FileOutputStream out = new FileOutputStream(outputFile);
                 	convertedFile.write(out);
                 	
                     mes.setMessage(outPutFileName);
@@ -81,12 +88,18 @@ public class FIleUpload {
             	   	} catch (IOException e) {
                 	e.printStackTrace();
                     mes.setError(true);
-                    mes.setMessage("Error! while writing the file.");
+            		e.printStackTrace(pw);
+            		String sStackTrace = sw.toString();
+                    mes.setMessage(sStackTrace);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
                 mes.setError(true);
-                mes.setMessage("Error! Incompatible document");
+           		e.printStackTrace(pw);
+        		String sStackTrace = sw.toString();
+                mes.setMessage(sStackTrace);
+
+//                mes.setMessage("Error! Incompatible document");
             }
         
 		return Response.ok() //200
