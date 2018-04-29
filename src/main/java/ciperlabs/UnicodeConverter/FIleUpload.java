@@ -37,7 +37,7 @@ import word.WDXToUnicode;
  */
 @Path("fileupload")
 public class FIleUpload {
-	String rootStorage = "/tmp/cse14/storage/";
+	String rootStorage = "/home/cse14/storage/";
 	@POST
 	@Path("/docx")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -46,7 +46,7 @@ public class FIleUpload {
 		
 		StringWriter sw = new StringWriter();					// for stacktrace
 		PrintWriter pw = new PrintWriter(sw);					//TODO should be removed after fixing the bug
-		
+		String sStackTraceDir = "";
 		
 		Message mes = new Message();
         Random rand = new Random();
@@ -54,11 +54,11 @@ public class FIleUpload {
 		String outPutFileName =rootStorage+"docx/"+randval+"converted"+fileDetail.getFileName();
 		
 		File theDir = new File(rootStorage+"docx/");
+	    boolean result = false;
 
 		// if the directory does not exist, create it
 		if (!theDir.exists()) {
 		    System.out.println("creating directory: " + theDir.getName());
-		    boolean result = false;
 
 		    try{
 		        theDir.mkdirs();
@@ -67,13 +67,16 @@ public class FIleUpload {
 		    catch(SecurityException se){
 		        //handle it
 		    	se.printStackTrace();
+		    	se.printStackTrace(pw);
+		    	sStackTraceDir= sw.toString();
 		    }        
 		    if(result) {    
-		        System.out.println("DIR created"); 
+		        System.out.println("DIR created"+theDir.getAbsolutePath()); 
 		    }
 		}
 
             try {
+            	
                 XWPFDocument docx = new XWPFDocument(file);
                 WDXToUnicode docxConverter = new WDXToUnicode(docx);
                 XWPFDocument convertedFile = docxConverter.startConversion();
@@ -82,15 +85,15 @@ public class FIleUpload {
        		try {
                 	FileOutputStream out = new FileOutputStream(outputFile);
                 	convertedFile.write(out);
-                	
-                    mes.setMessage(outPutFileName);
+                	System.out.println(outputFile.getAbsolutePath());
+                    mes.setMessage("docx/"+outputFile.getName());
 
             	   	} catch (IOException e) {
                 	e.printStackTrace();
                     mes.setError(true);
             		e.printStackTrace(pw);
             		String sStackTrace = sw.toString();
-                    mes.setMessage(sStackTrace);
+                    mes.setMessage(sStackTraceDir+"\n"+result+sStackTrace);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
