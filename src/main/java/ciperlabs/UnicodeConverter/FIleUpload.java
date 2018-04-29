@@ -37,7 +37,8 @@ import word.WDXToUnicode;
  */
 @Path("fileupload")
 public class FIleUpload {
-	String rootStorage = "/home/cse14/storage/";
+//	String rootStorage = "/home/cse14/storage/";
+	String rootStorage = System.getProperty("java.io.tempdir")+"/";
 	@POST
 	@Path("/docx")
 	@Produces(MediaType.APPLICATION_JSON)
