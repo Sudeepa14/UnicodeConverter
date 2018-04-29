@@ -94,14 +94,14 @@ public class FIleUpload {
                     mes.setError(true);
             		e.printStackTrace(pw);
             		String sStackTrace = sw.toString();
-                    mes.setMessage(sStackTraceDir+"\n"+result+sStackTrace);
+                    mes.setMessage(rootStorage+sStackTraceDir+"\n"+result+sStackTrace);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
                 mes.setError(true);
            		e.printStackTrace(pw);
         		String sStackTrace = sw.toString();
-                mes.setMessage(sStackTrace);
+                mes.setMessage(rootStorage+sStackTraceDir+"\n"+result+sStackTrace);
 
 //                mes.setMessage("Error! Incompatible document");
             }
