@@ -60,13 +60,14 @@ public class Engine {
 
             tamilLastCharError1 = false;
             tamilLastCharError2 = false;
-            if(Thibus.lastCharError(text)){
-                sinhalaLastCharError = true;
-                text = text.substring(0,text.length()-1);
-            }
             if(sinhalaLastCharError){
                 sinhalaLastCharError = false;
                 text = Thibus.fixLastCharError(text);
+            }
+
+            if(Thibus.lastCharError(text)){
+                sinhalaLastCharError = true;
+                text = text.substring(0,text.length()-1);
             }
 
             unicodeText = Thibus.convert(text);
@@ -78,16 +79,16 @@ public class Engine {
 
             tamilLastCharError1 = false;
             tamilLastCharError2 = false;
-            if(FMAbhaya.lastCharError(text)){
+            if(sinhalaLastCharError){
+                sinhalaLastCharError = false;
+                text = FMAbhaya_UCSC.fixLastCharError(text);
+            }
+            if(FMAbhaya_UCSC.lastCharError(text)){
                 sinhalaLastCharError = true;
                 text = text.substring(0,text.length()-1);
             }
-            if(sinhalaLastCharError){
-                sinhalaLastCharError = false;
-                text = FMAbhaya.fixLastCharError(text);
-            }
 
-            unicodeText = FMAbhaya.convert(text);
+            unicodeText = FMAbhaya_UCSC.convert(text);
 
             return new String[]{unicodeText,sinhalaUnicodeFont};
 
@@ -97,14 +98,16 @@ public class Engine {
 
             tamilLastCharError1 = false;
             tamilLastCharError2 = false;
-            if(DLManel.lastCharError(text)){
-                sinhalaLastCharError = true;
-                text = text.substring(0,text.length()-1);
-            }
+            
             if(sinhalaLastCharError){
                 sinhalaLastCharError = false;
                 text = DLManel.fixLastCharError(text);
             }
+            if(DLManel.lastCharError(text)){
+                sinhalaLastCharError = true;
+                text = text.substring(0,text.length()-1);
+            }
+
 
             unicodeText = DLManel.convert(text);
 
@@ -115,15 +118,15 @@ public class Engine {
 
             tamilLastCharError1 = false;
             tamilLastCharError2 = false;
-            if(MutuKata.lastCharError(text)){
-                sinhalaLastCharError = true;
-                text = text.substring(0,text.length()-1);
-            }
+
             if(sinhalaLastCharError){
                 sinhalaLastCharError = false;
                 text = MutuKata.fixLastCharError(text);
             }
-
+            if(MutuKata.lastCharError(text)){
+                sinhalaLastCharError = true;
+                text = text.substring(0,text.length()-1);
+            }
             unicodeText = MutuKata.convert(text);
 
             return new String[]{unicodeText,sinhalaUnicodeFont};
@@ -133,22 +136,22 @@ public class Engine {
 
             tamilLastCharError1 = false;
             tamilLastCharError2 = false;
-            if(SinhalaINet.lastCharError(text)){
-                sinhalaLastCharError = true;
-                text = text.substring(0,text.length()-1);
-            }
+
             if(sinhalaLastCharError){
                 sinhalaLastCharError = false;
                 text = SinhalaINet.fixLastCharError(text);
             }
-
+            if(SinhalaINet.lastCharError(text)){
+                sinhalaLastCharError = true;
+                text = text.substring(0,text.length()-1);
+            }
             unicodeText = SinhalaINet.convert(text);
 
             return new String[]{unicodeText,sinhalaUnicodeFont};
 
         }
         else if(font.equals("LTRL")|| font.equals("Arial")){                // Checking arial is not correct but not incorrect either
-
+        	
             unicodeText = LTRL.convert(text);
             return new String[]{unicodeText,sinhalaUnicodeFont};
         }
@@ -156,14 +159,6 @@ public class Engine {
                 ){
 
             sinhalaLastCharError = false;
-            if(ConvertionEngine.LegacyToUnicodeFontMappings.Tamil.Thibus.lastCharError(text)){
-                text = text.substring(0,text.length()-1);
-                tamilLastCharError1=true;
-            }
-            else if(ConvertionEngine.LegacyToUnicodeFontMappings.Tamil.Thibus.lastCharError2(text)){
-                text = text.substring(0,text.length()-1);
-                tamilLastCharError2=true;
-            }
             if(tamilLastCharError1){
                 tamilLastCharError1 = false;
                 text = ConvertionEngine.LegacyToUnicodeFontMappings.Tamil.Thibus.fixLastCharError(text);
@@ -172,6 +167,15 @@ public class Engine {
                 tamilLastCharError2 = false;
                 text = ConvertionEngine.LegacyToUnicodeFontMappings.Tamil.Thibus.fixLastCharError2(text);
             }
+            if(ConvertionEngine.LegacyToUnicodeFontMappings.Tamil.Thibus.lastCharError(text)){
+                text = text.substring(0,text.length()-1);
+                tamilLastCharError1=true;
+            }
+            else if(ConvertionEngine.LegacyToUnicodeFontMappings.Tamil.Thibus.lastCharError2(text)){
+                text = text.substring(0,text.length()-1);
+                tamilLastCharError2=true;
+            }
+
 
             unicodeText = ConvertionEngine.LegacyToUnicodeFontMappings.Tamil.Thibus.convert(text);
 
@@ -181,14 +185,6 @@ public class Engine {
         else if (font.equals("Kalaham")){
 
             sinhalaLastCharError = false;
-            if(Kalaham.lastCharError(text)){
-                text = text.substring(0,text.length()-1);
-                tamilLastCharError1=true;
-            }
-            else if(Kalaham.lastCharError2(text)){
-                text = text.substring(0,text.length()-1);
-                tamilLastCharError2=true;
-            }
             if(tamilLastCharError1){
                 tamilLastCharError1 = false;
                 text = Kalaham.fixLastCharError(text);
@@ -197,6 +193,15 @@ public class Engine {
                 tamilLastCharError2 = false;
                 text = Kalaham.fixLastCharError2(text);
             }
+            if(Kalaham.lastCharError(text)){
+                text = text.substring(0,text.length()-1);
+                tamilLastCharError1=true;
+            }
+            else if(Kalaham.lastCharError2(text)){
+                text = text.substring(0,text.length()-1);
+                tamilLastCharError2=true;
+            }
+
 
             unicodeText = Kalaham.convert(text);
 
@@ -206,14 +211,6 @@ public class Engine {
         else if (font.equals("Nallur")){
 
             sinhalaLastCharError = false;
-            if(Nallur.lastCharError(text)){
-                text = text.substring(0,text.length()-1);
-                tamilLastCharError1=true;
-            }
-            else if(Nallur.lastCharError2(text)){
-                text = text.substring(0,text.length()-1);
-                tamilLastCharError2=true;
-            }
             if(tamilLastCharError1){
                 tamilLastCharError1 = false;
                 text = Nallur.fixLastCharError(text);
@@ -222,6 +219,15 @@ public class Engine {
                 tamilLastCharError2 = false;
                 text = Nallur.fixLastCharError2(text);
             }
+            if(Nallur.lastCharError(text)){
+                text = text.substring(0,text.length()-1);
+                tamilLastCharError1=true;
+            }
+            else if(Nallur.lastCharError2(text)){
+                text = text.substring(0,text.length()-1);
+                tamilLastCharError2=true;
+            }
+
 
             unicodeText = Nallur.convert(text);
 
@@ -231,14 +237,6 @@ public class Engine {
         else if (font.equals("Baamini") || font.equals("Bamini")){
 
             sinhalaLastCharError = false;
-            if(Bamini.lastCharError(text)){
-                text = text.substring(0,text.length()-1);
-                tamilLastCharError1=true;
-            }
-            else if(Bamini.lastCharError2(text)){
-                text = text.substring(0,text.length()-1);
-                tamilLastCharError2=true;
-            }
             if(tamilLastCharError1){
                 tamilLastCharError1 = false;
                 text = Bamini.fixLastCharError(text);
@@ -247,6 +245,15 @@ public class Engine {
                 tamilLastCharError2 = false;
                 text = Bamini.fixLastCharError2(text);
             }
+            if(Bamini.lastCharError(text)){
+                text = text.substring(0,text.length()-1);
+                tamilLastCharError1=true;
+            }
+            else if(Bamini.lastCharError2(text)){
+                text = text.substring(0,text.length()-1);
+                tamilLastCharError2=true;
+            }
+
 
             unicodeText = Bamini.convert(text);
 

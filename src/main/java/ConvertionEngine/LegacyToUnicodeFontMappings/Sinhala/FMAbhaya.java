@@ -80,6 +80,8 @@ public class FMAbhaya {
             con.put("O" ,"ධ");
             con.put(":" ,"ථ");
             con.put("sÀ" ,"ඳ");
+            con.put("÷", "ඳු");
+            con.put("î", "බී");
         }
 
 
