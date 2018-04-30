@@ -131,6 +131,7 @@ public class FMAbhaya_UCSC {
 		text = text.replaceAll("f\\.%a", "ග්‍රේ");
 		text = text.replaceAll("fl%a", "ක්‍රේ");
 		text = text.replaceAll("fm%a", "ප්‍රේ");
+		text = text.replaceAll("fmÜa", "ප්‍රේ");	// added
 		text = text.replaceAll("føa", "ද්‍රේ");
 		text = text.replaceAll("fia%", "ස්‍රේ");
 		text = text.replaceAll("f\\;a%", "ත්‍රේ");
@@ -355,6 +356,8 @@ public class FMAbhaya_UCSC {
 		text = text.replaceAll("¨", "ලූ");
 		text = text.replaceAll("§", "දී");
 		text = text.replaceAll("ø", "ද්‍ර");
+		text = text.replaceAll("÷%", "ද්‍ර");
+		text = text.replaceAll("÷q", "ඳු");
 		text = text.replaceAll("÷", "ඳු");
 		text = text.replaceAll("ÿ", "දු");
 		text = text.replaceAll("ü", "ඤූ=");
@@ -459,7 +462,15 @@ public class FMAbhaya_UCSC {
 		text = text.replaceAll("p", "ච");
 		text = text.replaceAll("v", "ඩ");
 		text = text.replaceAll("M", "ඵ");
+        text= text.replaceAll("`o" ,"ඳ"); // added
+        text= text.replaceAll("`P" ,"ඦ"); // added
+        text= text.replaceAll("`v" ,"ඬ"); // added
+        text= text.replaceAll("`M", "ළු"); // added
+        text= text.replaceAll("M" ,"ඵ");  // added
+        text= text.replaceAll("`y" ,"ඟ"); // added
+		text = text.replaceAll("¥", "ඳු");
 		text = text.replaceAll("\\*", "ෆ");
+		text = text.replaceAll("`\\.", "ඟ");
 		text = text.replaceAll("\\.", "ග");
 		text = text.replaceAll("y", "හ");
 		text = text.replaceAll("c", "ජ");

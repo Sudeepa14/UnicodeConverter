@@ -3,8 +3,16 @@ package ConvertionEngine.LegacyToUnicodeFontMappings;
 public class Symbol {
 
 	public static String convert(String text) {
-		text.replaceAll("", "\\]");
-		text.replaceAll("", "\\[");
+		if(text.contains("") && text.length()==1) {
+			
+//			System.out.println("Font symbol found...");
+			text="]";
+		}
+		else if(text.contains("") && text.length()==1) {
+			text="[";
+		}
+//		text.replace("", "\\]");
+//		text.replace("", "\\[");
 		return text;
 	}
 }

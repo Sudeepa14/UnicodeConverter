@@ -88,7 +88,8 @@ public class WDXToUnicode {
                                 preRun.setText(nonStartable,-1);
                             }
                             else if(currentParagraphPosition >0){
-                                XWPFRun olderRun = paragraphs.get(currentParagraphPosition).getRuns().get(-1);
+                                List<XWPFRun> olderRuns = paragraphs.get(currentParagraphPosition).getRuns();
+                                XWPFRun olderRun = olderRuns.get(olderRuns.size()-1);
                                 olderRun.setText(nonStartable,-1);
                             }
                         }
@@ -99,14 +100,15 @@ public class WDXToUnicode {
                         if(sConvertedText!= null && sConvertedText.startsWith(nonStartable)){
 //                            run.setText(text.substring(1),0);
                         	sConvertedText = sConvertedText.substring(1);
-                            System.out.println(sConvertedText.substring(1)+ " : "+run.getText(0)+nonStartable);
+//                            System.out.println(sConvertedText.substring(1)+ " : "+run.getText(0)+nonStartable);
                             if(i>0){
                                 XWPFRun preRun = runs.get(i-1);
                                 preRun.setText(nonStartable,-1);
                             }
                             else if(currentParagraphPosition >0){
-                                XWPFRun olderRun = paragraphs.get(currentParagraphPosition).getRuns().get(-1);
-                                olderRun.setText(nonStartable,-1);
+                            	  List<XWPFRun> olderRuns = paragraphs.get(currentParagraphPosition).getRuns();
+                                  XWPFRun olderRun = olderRuns.get(olderRuns.size()-1);
+                                  olderRun.setText(nonStartable,-1);
                             }
                         }
                     }

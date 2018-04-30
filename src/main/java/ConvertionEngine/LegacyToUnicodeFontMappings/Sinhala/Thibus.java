@@ -9,7 +9,7 @@ public class Thibus {
 
 
     public static String convert(String text){
-
+	
         text = text.replaceAll("Ý", "À");
         text = text.replaceAll("μ", "µ");
         text = text.replaceAll("´", "ÿ");
@@ -303,6 +303,9 @@ public class Thibus {
         text = text.replaceAll("µöß", "ථේ");
         text = text.replaceAll("µíß", "ජේ");
         text = text.replaceAll("îÀß/","ඤ්");
+    	text = text.replaceAll("îÀa", "ඤ්");
+		text = text.replaceAll("îÀd", "ඤාා");
+		text = text.replaceAll("îÀ", "ඤා");
         text = text.replaceAll("wE", "ඈ");
         text = text.replaceAll("à\\|", "ඈ");
         text = text.replaceAll("µÂ", "ෂෙ");
