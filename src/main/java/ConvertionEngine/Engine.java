@@ -13,7 +13,8 @@ public class Engine {
     private static String sinhalaUnicodeFont = "SINHALA";
     private static String tamilUnicodeFont = "TAMIL";
     private static String lastFont = "";
-    private static boolean sinhalaLastCharError;
+    private static boolean sinhalaLastCharError1;
+    private static boolean sinhalaLastCharError2;
     private static boolean tamilLastCharError1;
     private static boolean tamilLastCharError2;
 
@@ -21,7 +22,8 @@ public class Engine {
 
     public Engine(){
         lastFont = "";
-        sinhalaLastCharError = false;
+        sinhalaLastCharError1 = false;
+        sinhalaLastCharError2 = false;
         tamilLastCharError1 = false;
         tamilLastCharError2 = false;
 
@@ -60,13 +62,20 @@ public class Engine {
 
             tamilLastCharError1 = false;
             tamilLastCharError2 = false;
-            if(sinhalaLastCharError){
-                sinhalaLastCharError = false;
+            if(sinhalaLastCharError1){
+                sinhalaLastCharError1 = false;
                 text = Thibus.fixLastCharError(text);
             }
-
+            else if(sinhalaLastCharError2) {
+            	sinhalaLastCharError2 = false;
+                text = Thibus.fixLastCharError2(text);
+            }
             if(Thibus.lastCharError(text)){
-                sinhalaLastCharError = true;
+                sinhalaLastCharError1 = true;
+                text = text.substring(0,text.length()-1);
+            }
+            else if(Thibus.lastCharError2(text)){
+                sinhalaLastCharError2 = true;
                 text = text.substring(0,text.length()-1);
             }
 
@@ -79,12 +88,20 @@ public class Engine {
 
             tamilLastCharError1 = false;
             tamilLastCharError2 = false;
-            if(sinhalaLastCharError){
-                sinhalaLastCharError = false;
+            if(sinhalaLastCharError1){
+                sinhalaLastCharError1 = false;
                 text = FMAbhaya_UCSC.fixLastCharError(text);
             }
+            else if(sinhalaLastCharError2) {
+            	sinhalaLastCharError2 = false;
+                text = FMAbhaya_UCSC.fixLastCharError2(text);
+            }
             if(FMAbhaya_UCSC.lastCharError(text)){
-                sinhalaLastCharError = true;
+                sinhalaLastCharError1 = true;
+                text = text.substring(0,text.length()-1);
+            }
+            else if(FMAbhaya_UCSC.lastCharError2(text)){
+                sinhalaLastCharError2 = true;
                 text = text.substring(0,text.length()-1);
             }
 
@@ -99,12 +116,20 @@ public class Engine {
             tamilLastCharError1 = false;
             tamilLastCharError2 = false;
             
-            if(sinhalaLastCharError){
-                sinhalaLastCharError = false;
+            if(sinhalaLastCharError1){
+                sinhalaLastCharError1 = false;
                 text = DLManel.fixLastCharError(text);
             }
+            else if(sinhalaLastCharError2) {
+            	sinhalaLastCharError2 = false;
+                text = DLManel.fixLastCharError2(text);
+            }
             if(DLManel.lastCharError(text)){
-                sinhalaLastCharError = true;
+                sinhalaLastCharError1 = true;
+                text = text.substring(0,text.length()-1);
+            }
+            else if(DLManel.lastCharError2(text)){
+                sinhalaLastCharError2 = true;
                 text = text.substring(0,text.length()-1);
             }
 
@@ -119,12 +144,20 @@ public class Engine {
             tamilLastCharError1 = false;
             tamilLastCharError2 = false;
 
-            if(sinhalaLastCharError){
-                sinhalaLastCharError = false;
+            if(sinhalaLastCharError1){
+                sinhalaLastCharError1 = false;
                 text = MutuKata.fixLastCharError(text);
             }
+            else if(sinhalaLastCharError2) {
+            	sinhalaLastCharError2 = false;
+                text = MutuKata.fixLastCharError2(text);
+            }
             if(MutuKata.lastCharError(text)){
-                sinhalaLastCharError = true;
+                sinhalaLastCharError1 = true;
+                text = text.substring(0,text.length()-1);
+            }
+            else if(DLManel.lastCharError2(text)){
+                sinhalaLastCharError2 = true;
                 text = text.substring(0,text.length()-1);
             }
             unicodeText = MutuKata.convert(text);
@@ -137,12 +170,20 @@ public class Engine {
             tamilLastCharError1 = false;
             tamilLastCharError2 = false;
 
-            if(sinhalaLastCharError){
-                sinhalaLastCharError = false;
+            if(sinhalaLastCharError1){
+                sinhalaLastCharError1 = false;
                 text = SinhalaINet.fixLastCharError(text);
             }
+            else if(sinhalaLastCharError2) {
+            	sinhalaLastCharError2 = false;
+                text = SinhalaINet.fixLastCharError2(text);
+            }
             if(SinhalaINet.lastCharError(text)){
-                sinhalaLastCharError = true;
+                sinhalaLastCharError1 = true;
+                text = text.substring(0,text.length()-1);
+            }
+            else if(SinhalaINet.lastCharError2(text)){
+                sinhalaLastCharError2 = true;
                 text = text.substring(0,text.length()-1);
             }
             unicodeText = SinhalaINet.convert(text);
@@ -158,7 +199,9 @@ public class Engine {
         else if (font.equals("T06ThibusTru")|| font.equals("T02Thibus") || font.equals("T04ThibusTru")
                 ){
 
-            sinhalaLastCharError = false;
+            sinhalaLastCharError1 = false;
+            sinhalaLastCharError2 = false;
+
             if(tamilLastCharError1){
                 tamilLastCharError1 = false;
                 text = ConvertionEngine.LegacyToUnicodeFontMappings.Tamil.Thibus.fixLastCharError(text);
@@ -184,7 +227,9 @@ public class Engine {
         }
         else if (font.equals("Kalaham")){
 
-            sinhalaLastCharError = false;
+            sinhalaLastCharError1 = false;
+            sinhalaLastCharError2 = false;
+
             if(tamilLastCharError1){
                 tamilLastCharError1 = false;
                 text = Kalaham.fixLastCharError(text);
@@ -210,7 +255,9 @@ public class Engine {
         }
         else if (font.equals("Nallur")){
 
-            sinhalaLastCharError = false;
+            sinhalaLastCharError1 = false;
+            sinhalaLastCharError2 = false;
+
             if(tamilLastCharError1){
                 tamilLastCharError1 = false;
                 text = Nallur.fixLastCharError(text);
@@ -236,7 +283,9 @@ public class Engine {
         }
         else if (font.equals("Baamini") || font.equals("Bamini")){
 
-            sinhalaLastCharError = false;
+            sinhalaLastCharError1 = false;
+            sinhalaLastCharError2 = false;
+
             if(tamilLastCharError1){
                 tamilLastCharError1 = false;
                 text = Bamini.fixLastCharError(text);
@@ -261,7 +310,10 @@ public class Engine {
 
         }
         else if(font.equals("Symbol")) {
-        	
+        	sinhalaLastCharError1 = false;
+            sinhalaLastCharError2 = false;
+            tamilLastCharError1 = false;
+            tamilLastCharError2 = false;
         	unicodeText = Symbol.convert(text);
         	return new String[]{unicodeText,sinhalaUnicodeFont};
         }

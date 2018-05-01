@@ -548,4 +548,17 @@ public class DLManel {
     public static String fixLastCharError(String text){
         return "f"+text;
     }
+    public static boolean lastCharError2(String text) {
+//        if(text.endsWith("ú")){
+//            return true;
+//        }
+//        else{
+//            return false;
+//        }
+    	return false;
+    }
+    public static String fixLastCharError2(String text){
+//        return "ú"+text;
+    	return text;
+    }
 }

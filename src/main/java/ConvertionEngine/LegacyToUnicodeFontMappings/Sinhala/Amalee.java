@@ -442,6 +442,15 @@ public class Amalee {
         text = text.replaceAll("i", "ස");
         text = text.replaceAll("j", "ව");
         text = text.replaceAll("\\*", "ෆ");
+		
+	
+        text= text.replaceAll("`o" ,"ඳ"); // added
+        text= text.replaceAll("`P" ,"ඦ"); // added
+        text= text.replaceAll("`v" ,"ඬ"); // added
+        text= text.replaceAll("`¿", "ළු"); // added
+        text= text.replaceAll("M" ,"ඵ");  // added
+        text= text.replaceAll("`y" ,"ඟ"); // added
+
 		text = text.replaceAll("¿", "ළු");
 		text = text.replaceAll("y", "හ");
 		text = text.replaceAll("<", "ළ");
@@ -514,5 +523,16 @@ public class Amalee {
     }
     public static String fixLastCharError(String text){
         return "f"+text;
+    }
+    public static boolean lastCharError2(String text) {
+        if(text.endsWith("`")){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public static String fixLastCharError2(String text){
+        return "`"+text;
     }
 }

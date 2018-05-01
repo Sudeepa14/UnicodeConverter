@@ -378,6 +378,7 @@ public class Thibus {
         text = text.replaceAll("úÔ", "ඳු");
         text = text.replaceAll("÷Õ", "දු");
         text = text.replaceAll("÷¼", "දූ");
+
         text = text.replaceAll("Ð", "ලූ");
 
         text = text.replaceAll("\\&#", "ඍ");
@@ -487,6 +488,7 @@ public class Thibus {
         text = text.replaceAll("úÀ", "ඳ");
         text = text.replaceAll("ïÀ", "ඥ");
         text = text.replaceAll("÷º", "ද්‍ර");
+
         text = text.replaceAll("Ü", "‍්‍ර");
         text = text.replaceAll("º", "‍්‍ර");
         text = text.replaceAll("`", "ැ");
@@ -522,5 +524,16 @@ public class Thibus {
     }
     public static String fixLastCharError(String text){
         return "µ"+text;
+    }
+    public static boolean lastCharError2(String text) {
+        if(text.endsWith("ú")){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public static String fixLastCharError2(String text){
+        return "ú"+text;
     }
 }

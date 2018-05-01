@@ -388,4 +388,16 @@ public class SinhalaINet {
     public static String fixLastCharError(String text){
         return "ï"+text;
     }
+    public static boolean lastCharError2(String text) {
+//        if(text.endsWith("Z")){
+//            return true;
+//        }
+//        else{
+//            return false;
+//        }
+    	return false;
+    }
+    public static String fixLastCharError2(String text){
+        return text;
+    }
 }

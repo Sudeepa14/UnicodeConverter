@@ -360,8 +360,8 @@ public class FMAbhaya_UCSC {
 		text = text.replaceAll("÷q", "ඳු");
 		text = text.replaceAll("÷", "ඳු");
 		text = text.replaceAll("ÿ", "දු");
-		text = text.replaceAll("ü", "ඤූ=");
-		text = text.replaceAll("û", "ඤු=");
+		text = text.replaceAll("ü", "ඤූ");
+		text = text.replaceAll("û", "ඤු");
 		text = text.replaceAll("£", "ඳී");
 		text = text.replaceAll("°", "ඣී");
 		text = text.replaceAll("Á", "ඨී");
@@ -634,6 +634,8 @@ public class FMAbhaya_UCSC {
 		text = text.replaceAll("\\u0080", " ");
 		text = text.replaceAll("ı", " ");
 		text = text.replaceAll("Ÿ", "˚");
+        text = text.replaceAll("÷ැ", "ඳ");
+
 		return text;
 		
 	}
@@ -649,5 +651,18 @@ public class FMAbhaya_UCSC {
     }
     public static String fixLastCharError(String text){
         return "f"+text;
+    }
+    
+    
+    public static boolean lastCharError2(String text) {
+        if(text.endsWith("`")){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public static String fixLastCharError2(String text){
+        return "`"+text;
     }
 }
