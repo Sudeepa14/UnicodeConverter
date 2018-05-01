@@ -442,6 +442,12 @@ public class FMAbhaya_UCSC {
 		text = text.replaceAll("<", "ළ");
 		text = text.replaceAll("\\`y", "ඟ");
 		text = text.replaceAll("K", "ණ");
+        text= text.replaceAll("`o" ,"ඳ"); // added
+        text= text.replaceAll("`P" ,"ඦ"); // added
+        text= text.replaceAll("`v" ,"ඬ"); // added
+        text= text.replaceAll("`M", "ළු"); // added
+        text= text.replaceAll("`y" ,"ඟ"); // added
+        text= text.replaceAll("M" ,"ඵ");  // added
 		text = text.replaceAll("M", "ඵ");
 		text = text.replaceAll("G", "ඨ");
 		text = text.replaceAll("¿", "ළු");
@@ -462,12 +468,8 @@ public class FMAbhaya_UCSC {
 		text = text.replaceAll("p", "ච");
 		text = text.replaceAll("v", "ඩ");
 		text = text.replaceAll("M", "ඵ");
-        text= text.replaceAll("`o" ,"ඳ"); // added
-        text= text.replaceAll("`P" ,"ඦ"); // added
-        text= text.replaceAll("`v" ,"ඬ"); // added
-        text= text.replaceAll("`M", "ළු"); // added
-        text= text.replaceAll("M" ,"ඵ");  // added
-        text= text.replaceAll("`y" ,"ඟ"); // added
+
+
 		text = text.replaceAll("¥", "ඳු");
 		text = text.replaceAll("\\*", "ෆ");
 		text = text.replaceAll("`\\.", "ඟ");

@@ -126,7 +126,7 @@ public class FIleUpload {
 		System.out.println("Downloaading...........");
 		ResponseBuilder response = Response.ok((Object) file);
 		response.header("Content-Disposition",
-			"attachment; filename="+filename);
+			"attachment; filename=\""+filename+"\"");
 		return response.build();
 	}
 }
