@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 	<meta name="theme-color" content="#000000">
 	<link rel="manifest" href="/manifest.json">
@@ -9,10 +9,6 @@
 	<title>React App</title>
 	<link href="/static/css/main.60c94c3b.css" rel="stylesheet">
 </head>
-	<body>
-		<noscript>You need to enable JavaScript to run this app.</noscript>
-		<div id="root"></div>
-		<script type="text/javascript" src="/static/js/main.9aedefad.js">
-		</script>
-	</body>
-</html>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root"></div><script type="text/javascript" src="/static/js/main.62f05ff3.js"></script></body></html>

@@ -484,6 +484,7 @@ public class FMAbhaya_UCSC {
 		text = text.replaceAll("r", "ර");
 		text = text.replaceAll("i", "ස");
 		text = text.replaceAll("g", "ට");
+		text = text.replaceAll("W!", " ඌ");
 		text = text.replaceAll("W", "උ");
 		text = text.replaceAll("j", "ව");
 		text = text.replaceAll(";", "ත");
@@ -538,7 +539,7 @@ public class FMAbhaya_UCSC {
 		text = text.replaceAll("«", "×");
 		text = text.replaceAll("}", "=");
 		text = text.replaceAll("−", "÷");
-		text = text.replaceAll("\"", "□");
+		text = text.replaceAll("\"", ",");
 		text = text.replaceAll("æ", "!");
 		text = text.replaceAll("\\$", "/");
 		text = text.replaceAll("\\&", ")");
@@ -617,7 +618,7 @@ public class FMAbhaya_UCSC {
 		// text = text.replaceAll("−", "÷"); //removed - matched below
 		text = text.replaceAll("¬", "+");
 		text = text.replaceAll("«", "×");
-		text = text.replaceAll("}", "=");
+		text = text.replaceAll("\\}", "=");
 	// text = text.replaceAll("”", "□"); //removed - keep as is
 		text = text.replaceAll("&", ")"); //order changed from above
 		text = text.replaceAll("-", "-");
