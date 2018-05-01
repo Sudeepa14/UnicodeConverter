@@ -358,6 +358,7 @@ public class FMAbhaya_UCSC {
 		text = text.replaceAll("ø", "ද්‍ර");
 		text = text.replaceAll("÷%", "ද්‍ර");
 		text = text.replaceAll("÷q", "ඳු");
+		text = text.replaceAll("`ÿ", "ඳු");
 		text = text.replaceAll("÷", "ඳු");
 		text = text.replaceAll("ÿ", "දු");
 		text = text.replaceAll("ü", "ඤූ");
@@ -387,6 +388,7 @@ public class FMAbhaya_UCSC {
 		text = text.replaceAll("B", "ඊ");
 		text = text.replaceAll("b", "ඉ");
 		text = text.replaceAll("¢", "ඳි");
+		text = text.replaceAll("`È", "ඳි");
 		text = text.replaceAll("È", "දි");
 		text = text.replaceAll("¯", "ඣි");
 		text = text.replaceAll("À", "ඨි");
@@ -397,6 +399,7 @@ public class FMAbhaya_UCSC {
 		text = text.replaceAll("Ñ", "චි");
 		text = text.replaceAll("Ó", "ථි");
 		text = text.replaceAll("á", "ටි");
+		text = text.replaceAll("`ä", "ඬි");
 		text = text.replaceAll("ä", "ඩි");
 		text = text.replaceAll("ç", "ඬි");
 		text = text.replaceAll("ê", "ධි");
