@@ -9,7 +9,7 @@ import javax.swing.filechooser.FileSystemView;
 /**
  * Created by gayan@ciperlabs.com on 4/21/18.
  */
-public class test {
+public class testDOCX {
     public static void main(String[] args) {
 		JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 

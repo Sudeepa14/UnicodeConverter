@@ -29,6 +29,10 @@ public class Engine {
 
     }
     public String[] toUnicode(String text, String font){
+        /*
+        Accepts the @param text and @param font
+        return  an array of strings containing the @convertedText and @UnicodeFont
+         */
         String unicodeText = text;
         String newFont = null;
         if(font == null){
