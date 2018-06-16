@@ -103,8 +103,8 @@ public class Kalaham {
             text = text.replace("Nlh", "டோ");
             text = text.replace("nlh", "டொ");
             text = text.replace("lh", "டா");
-            text = text.replace("B", "டி");
-            text = text.replace("b", "டீ");
+            text = text.replace("b", "டி");
+            text = text.replace("B", "டீ");
             text = text.replace("L", "டு");
             text = text.replace("^", "டூ");
             text = text.replace("nl", "டெ");
@@ -187,7 +187,6 @@ public class Kalaham {
         text = text.replace("ng", "பெ");
         text = text.replace("Ng", "பே");
         text = text.replace("ig", "பை");
-        text = text.replace("ngh", "பொ");
         text = text.replace("g;", "ப்");
         text = text.replace("g", "ப");
 
@@ -211,8 +210,8 @@ public class Kalaham {
         text = text.replace("ah", "யா");
         text = text.replace("ap", "யி");
         text = text.replace("aP", "யீ");
+        text = text.replace("A\\+", "யூ");
         text = text.replace("A", "யு");
-        text = text.replace("A+", "யூ");
         text = text.replace("na", "யெ");
         text = text.replace("Na", "யே");
         text = text.replace("ia", "யை");
@@ -240,8 +239,8 @@ public class Kalaham {
         text = text.replace("yh", "லா");
         text = text.replace("yp", "லி");
         text = text.replace("yP", "லீ");
-        text = text.replace("Y", "லு");
         text = text.replace("Y\\}", "லூ");
+        text = text.replace("Y", "லு");
         text = text.replace("ny", "லெ");
         text = text.replace("Ny", "லே");
         text = text.replace("iy", "லை");
@@ -269,8 +268,8 @@ public class Kalaham {
         text = text.replace("th", "வா");
         text = text.replace("tp", "வி");
         text = text.replace("tP", "வீ");
-        text = text.replace("T", "வு");
         text = text.replace("T\\+", "வூ");
+        text = text.replace("T", "வு");
         text = text.replace("nt", "வெ");
         text = text.replace("Nt", "வே");
         text = text.replace("it", "வை");

@@ -34,12 +34,11 @@ public class testPDF {
         outPutFileName += "-converted." + fnameSplitted[fnameSplitted.length-1];
         FileInputStream fileInputStream = null;
 
-//            fileInputStream = new FileInputStream(file.getAbsolutePath());
-//            PDFToUnicodePDFBOX pdfToUnicodePDFBOX = new PDFToUnicodePDFBOX();
-//
-//            pdfToUnicodePDFBOX.startConvertion(file);
+            PDFToUnicodePDFBOX pdfToUnicodePDFBOX = new PDFToUnicodePDFBOX();
 
-        PDFToUnicodeiText pdfToUnicodeiText = new PDFToUnicodeiText();
-        pdfToUnicodeiText.startConvertioin(file);
+            pdfToUnicodePDFBOX.startConvertion(file);
+
+//        PDFToUnicodeiText pdfToUnicodeiText = new PDFToUnicodeiText();
+//        pdfToUnicodeiText.startConvertioin(file);
     }
 }

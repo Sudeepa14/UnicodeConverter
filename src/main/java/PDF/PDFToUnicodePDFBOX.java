@@ -59,8 +59,8 @@ public class PDFToUnicodePDFBOX {
                 }
             };
             pdDoc = new PDDocument(cosDoc);
-            pdfStripper.setStartPage(10);
-            pdfStripper.setEndPage(15);
+            pdfStripper.setStartPage(30);
+            pdfStripper.setEndPage(40);
             String parsedText = pdfStripper.getText(pdDoc);
             System.out.println(parsedText);
 
