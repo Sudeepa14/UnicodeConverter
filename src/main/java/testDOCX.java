@@ -11,29 +11,31 @@ import javax.swing.filechooser.FileSystemView;
  */
 public class testDOCX {
     public static void main(String[] args) {
-		JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+//		JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+//
+//		int returnValue = jfc.showOpenDialog(null);
+//		// int returnValue = jfc.showSaveDialog(null);
+//		File file = null;
+//		if (returnValue == JFileChooser.APPROVE_OPTION) {
+//			file = jfc.getSelectedFile();
+//			System.out.println(file.getAbsolutePath());
+//		}
 
-		int returnValue = jfc.showOpenDialog(null);
-		// int returnValue = jfc.showSaveDialog(null);
-		File file = null;
-		if (returnValue == JFileChooser.APPROVE_OPTION) {
-			file = jfc.getSelectedFile();
-			System.out.println(file.getAbsolutePath());
-		}
-
-        String fileName = file.getName();
-        System.out.println(fileName);
-        String[] fnameSplitted = fileName.split("\\.");
-        String outPutFileName="";
-        int i =0;
-        while (i<fnameSplitted.length-1){
-            outPutFileName+=fnameSplitted[i];
-            i++;
-        }
-        outPutFileName += "-converted." + fnameSplitted[fnameSplitted.length-1];
+//        String fileName = file.getName();
+//        System.out.println(fileName);
+//        String[] fnameSplitted = fileName.split("\\.");
+//        String outPutFileName="";
+//        int i =0;
+//        while (i<fnameSplitted.length-1){
+//            outPutFileName+=fnameSplitted[i];
+//            i++;
+//        }
+//        outPutFileName += "-converted." + fnameSplitted[fnameSplitted.length-1];
+        String outPutFileName = "test.docx";
         FileInputStream fileInputStream = null;
         try {
-            fileInputStream = new FileInputStream(file.getAbsolutePath());
+//            fileInputStream = new FileInputStream(file.getAbsolutePath());
+                fileInputStream = new FileInputStream("/home/gayan/Desktop/CiperLabs/UnicodeConverter/docs/test-samples/test-tamil.docx");
             try {
                 XWPFDocument docx = new XWPFDocument(fileInputStream);
                 WDXToUnicode docxConverter = new WDXToUnicode(docx);

@@ -259,8 +259,8 @@ public class Nallur {
         text = text.replaceAll("Ng", "பே");
         text = text.replaceAll("ngh", "பொ");
         text = text.replaceAll("Ngh", "போ");
-        text = text.replaceAll("G", "பு");
         text = text.replaceAll("G\\+", "பூ");
+        text = text.replaceAll("G", "பு");
         text = text.replaceAll("g;", "ப்");
         text = text.replaceAll("g", "ப");
 
@@ -292,8 +292,8 @@ public class Nallur {
         text = text.replaceAll("na", "யெ");
         text = text.replaceAll("nah", "யொ");
         text = text.replaceAll("yO", "யோ");
-        text = text.replaceAll("A", "யு");
         text = text.replaceAll("A\\+", "யூ");
+        text = text.replaceAll("A", "யு");
         text = text.replaceAll("a;", "ய்");
         text = text.replaceAll("a", "ய");
 
@@ -310,8 +310,8 @@ public class Nallur {
         text = text.replaceAll("Nd", "னே");
         text = text.replaceAll("ndh", "னொ");
         text = text.replaceAll("Ndh", "னோ");
-        text = text.replaceAll("D", "னு");
         text = text.replaceAll("D\\}", "னூ");
+        text = text.replaceAll("D", "னு");
         text = text.replaceAll("d;", "ன்");
         text = text.replaceAll("d", "ன");
 
@@ -327,8 +327,8 @@ public class Nallur {
         text = text.replaceAll("Nz", "ணே");
         text = text.replaceAll("nzh", "ணொ");
         text = text.replaceAll("Nzh", "ணோ");
-        text = text.replaceAll("Z", "ணு");
         text = text.replaceAll("Z\\}", "ணூ");
+        text = text.replaceAll("Z", "ணு");
         text = text.replaceAll("z;", "ண்");
         text = text.replaceAll("z", "ண");
 
@@ -345,8 +345,8 @@ public class Nallur {
         text = text.replaceAll("Ny", "லே");
         text = text.replaceAll("nyh", "லொ");
         text = text.replaceAll("Nyh", "லோ");
-        text = text.replaceAll("Y", "லு");
         text = text.replaceAll("Y\\}", "லூ");
+        text = text.replaceAll("Y", "லு");
         text = text.replaceAll("y;", "ல்");
         text = text.replaceAll("y", "ல");
 
@@ -381,8 +381,8 @@ public class Nallur {
         text = text.replaceAll("Nt", "வே");
         text = text.replaceAll("nth", "வொ");
         text = text.replaceAll("Nth", "வோ");
-        text = text.replaceAll("T", "வு");
         text = text.replaceAll("T\\+", "வூ");
+        text = text.replaceAll("T", "வு");
         text = text.replaceAll("t;", "வ்");
         text = text.replaceAll("t", "வ");
 
