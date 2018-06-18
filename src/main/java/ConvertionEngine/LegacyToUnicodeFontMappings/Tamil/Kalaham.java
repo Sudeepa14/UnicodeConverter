@@ -121,7 +121,7 @@ public class Kalaham {
             text = text.replaceAll("zh", "ணா");
             text = text.replaceAll("zp", "ணி");
             text = text.replaceAll("zP", "ணீ");
-            text = text.replaceAll("Z\\}", "ணூ"); // not found
+            text = text.replaceAll("Z}", "ணூ"); // not found
         text = text.replaceAll("Z", "ணு");
         text = text.replaceAll("nz", "ணெ");
         text = text.replaceAll("Nz", "ணே");
@@ -137,7 +137,7 @@ public class Kalaham {
         text = text.replaceAll("jh", "தா");
         text = text.replaceAll("jp", "தி");
         text = text.replaceAll("jP", "தீ");
-        text = text.replaceAll("J\\}", "தூ");
+        text = text.replaceAll("J}", "தூ");
     text = text.replaceAll("J", "து");
     text = text.replaceAll("nj", "தெ");
     text = text.replaceAll("Nj", "தே");
@@ -153,7 +153,7 @@ public class Kalaham {
     text = text.replaceAll("eh", "நா");
     text = text.replaceAll("ep", "நி");
     text = text.replaceAll("eP", "நீ");
-    text = text.replaceAll("E\\}", "நூ");
+    text = text.replaceAll("E}", "நூ");
         text = text.replaceAll("E", "நு");
         text = text.replaceAll("ne", "நெ");
         text = text.replaceAll("Ne", "நே");
@@ -169,7 +169,7 @@ public class Kalaham {
         text = text.replaceAll("dh", "னா");
         text = text.replaceAll("dp", "னி");
         text = text.replaceAll("dP", "னீ");
-        text = text.replaceAll("D\\}", "னூ");
+        text = text.replaceAll("D}", "னூ");
         text = text.replaceAll("D", "னு");
         text = text.replaceAll("nd", "னெ");
         text = text.replaceAll("Nd", "னே");
@@ -185,6 +185,7 @@ public class Kalaham {
         text = text.replaceAll("gp", "பி");
         text = text.replaceAll("gP", "பீ");
         text = text.replaceAll("G\\+", "பூ");
+        text = text.replaceAll("g\\+", "பூ");
         text = text.replaceAll("G", "பு");
         text = text.replaceAll("ng", "பெ");
         text = text.replaceAll("Ng", "பே");
@@ -241,7 +242,7 @@ public class Kalaham {
         text = text.replaceAll("yh", "லா");
         text = text.replaceAll("yp", "லி");
         text = text.replaceAll("yP", "லீ");
-        text = text.replaceAll("Y\\}", "லூ");
+        text = text.replaceAll("Y}", "லூ");
         text = text.replaceAll("Y", "லு");
         text = text.replaceAll("ny", "லெ");
         text = text.replaceAll("Ny", "லே");
@@ -328,6 +329,7 @@ public class Kalaham {
         text = text.replaceAll("Nbh", "ஷோ");
         text = text.replaceAll("nbh", "ஷொ");
         text = text.replaceAll("bh", "ஷா");
+        text = text.replaceAll("\\\\h", "ஷா");
         text = text.replaceAll("bp", "ஷி");
         text = text.replaceAll("bP", "ஷீ");
         text = text.replaceAll("nb", "ஷெ");
@@ -336,6 +338,8 @@ public class Kalaham {
         text = text.replaceAll("nbh", "ஷொ");
         text = text.replaceAll("b;", "ஷ்");
         text = text.replaceAll("b", "ஷ");
+
+
 
 
         text = text.replaceAll("n]s", "ஸௌ");
