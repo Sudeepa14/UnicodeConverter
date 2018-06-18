@@ -214,6 +214,7 @@ public class Kalaham {
         text = text.replaceAll("ap", "யி");
         text = text.replaceAll("aP", "யீ");
         text = text.replaceAll("A\\+", "யூ");
+        text = text.replaceAll("a\\+", "யூ");
         text = text.replaceAll("A", "யு");
         text = text.replaceAll("na", "யெ");
         text = text.replaceAll("Na", "யே");
@@ -272,6 +273,7 @@ public class Kalaham {
         text = text.replaceAll("tp", "வி");
         text = text.replaceAll("tP", "வீ");
         text = text.replaceAll("T\\+", "வூ");
+        text = text.replaceAll("t\\+", "வூ");
         text = text.replaceAll("T", "வு");
         text = text.replaceAll("nt", "வெ");
         text = text.replaceAll("Nt", "வே");
