@@ -185,6 +185,7 @@ public class Kalaham {
         text = text.replaceAll("gp", "பி");
         text = text.replaceAll("gP", "பீ");
         text = text.replaceAll("G\\+", "பூ");
+        text = text.replaceAll("g\\+", "பூ");
         text = text.replaceAll("G", "பு");
         text = text.replaceAll("ng", "பெ");
         text = text.replaceAll("Ng", "பே");
