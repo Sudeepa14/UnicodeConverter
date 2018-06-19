@@ -413,6 +413,8 @@ public class Nallur {
         text = text.replaceAll("n","ெ");
         text = text.replaceAll(";","்");
         text = text.replaceAll("h","ா");
+        text = text.replaceAll("i","ை");
+
         return text;
     }
     public static boolean lastCharError(String text){
@@ -431,10 +433,22 @@ public class Nallur {
             return false;
         }
     }
+    public static boolean lastCharError3(String text){
+        if(text.endsWith("i")){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     public static String fixLastCharError(String text){
         return "n"+text;
     }
     public static String fixLastCharError2(String text){
         return "N"+text;
     }
+    public static String fixLastCharError3(String text){
+        return "i"+text;
+    }
+
 }

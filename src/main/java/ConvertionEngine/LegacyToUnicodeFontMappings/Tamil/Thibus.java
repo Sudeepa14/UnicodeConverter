@@ -434,6 +434,7 @@ public class Thibus {
         text = text.replaceAll("î ","ெ");
         text = text.replaceAll("º","்");
         text = text.replaceAll("è","ா");
+        text = text.replaceAll("é","ை");
         return text;
     }
     public static boolean lastCharError(String text){
@@ -452,10 +453,22 @@ public class Thibus {
             return false;
         }
     }
+    public static boolean lastCharError3(String text){
+        if(text.endsWith("é")){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     public static String fixLastCharError(String text){
         return "î"+text;
     }
     public static String fixLastCharError2(String text){
         return "Î"+text;
     }
+    public static String fixLastCharError3(String text){
+        return "é"+text;
+    }
+
 }

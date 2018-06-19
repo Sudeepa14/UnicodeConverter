@@ -342,6 +342,7 @@ public class Bamini {
         text = text.replaceAll("n", "ெ");
         text = text.replaceAll("\\+","ூ");
         text = text.replaceAll(">", ",");
+        text = text.replaceAll("i","ை");
 
         return text;
         }
@@ -362,10 +363,22 @@ public class Bamini {
             return false;
         }
     }
+    public static boolean lastCharError3(String text){
+        if(text.endsWith("i")){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     public static String fixLastCharError(String text){
         return "n"+text;
     }
     public static String fixLastCharError2(String text){
         return "N"+text;
     }
+    public static String fixLastCharError3(String text){
+        return "i"+text;
+    }
+
 }

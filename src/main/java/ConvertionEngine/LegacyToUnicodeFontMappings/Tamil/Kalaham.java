@@ -82,10 +82,8 @@ public class Kalaham {
             text = text.replaceAll("n\\[", "ஜெ");
             text = text.replaceAll("N\\[", "ஜே");
             text = text.replaceAll("i\\[", "ஜை");
-            text = text.replaceAll("n\\[h", "ஜொ");
             text = text.replaceAll("\\[;", "ஜ்");
             text = text.replaceAll("\\[", "ஜ");
-
             text = text.replaceAll("nQs", "ஞௌ");
             text = text.replaceAll("NQh", "ஞோ");
             text = text.replaceAll("nQh", "ஞொ");
@@ -169,7 +167,7 @@ public class Kalaham {
         text = text.replaceAll("dh", "னா");
         text = text.replaceAll("dp", "னி");
         text = text.replaceAll("dP", "னீ");
-        text = text.replaceAll("D}", "னூ");
+        text = text.replaceAll("D\\}", "னூ");
         text = text.replaceAll("D", "னு");
         text = text.replaceAll("nd", "னெ");
         text = text.replaceAll("Nd", "னே");
@@ -408,7 +406,8 @@ public class Kalaham {
         text = text.replaceAll("P", "ீ");
         text = text.replaceAll("N", "ே");
         text = text.replaceAll("n", "ெ");
-
+        text = text.replaceAll("}","ா");
+        text = text.replaceAll("i","ை");
         return text;
         }
     public static boolean lastCharError(String text){
@@ -427,10 +426,22 @@ public class Kalaham {
             return false;
         }
     }
+    public static boolean lastCharError3(String text){
+        if(text.endsWith("i")){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     public static String fixLastCharError(String text){
         return "n"+text;
     }
     public static String fixLastCharError2(String text){
         return "N"+text;
     }
+    public static String fixLastCharError3(String text){
+        return "i"+text;
+    }
+
 }
