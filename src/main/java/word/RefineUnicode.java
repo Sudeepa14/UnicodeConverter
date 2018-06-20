@@ -36,7 +36,7 @@ public class RefineUnicode {
 
                     String nextText = run.getText(0);
                     if(nextText == null){
-                        nextText = "";g
+                        nextText = "";
                     }
                         nextText = nextText.replaceAll("÷ු", "ද");
 //                        if(nextText!=null && nextText.equals("ිුී")){
