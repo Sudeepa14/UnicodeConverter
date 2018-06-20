@@ -32,28 +32,36 @@ public class RefineUnicode {
         for (XWPFParagraph p : doc.getParagraphs()) {
 //            System.out.println("*********************************************");
             List<XWPFRun> runs = p.getRuns();
-            if (runs != null) {
-                int runsLength = runs.size();
-                int i = 0;
-                while(i<runsLength){
-                    XWPFRun run = runs.get(i);
+            for (XWPFRun run: runs) {
 
-                    if(i+1 < runsLength){
-                        XWPFRun nextRun = runs.get(i+1);
-                        String nextText = nextRun.getText(0);
-                        String[] nonStartables = { "ා","ැ","ෑ","ි","ී","ු" ,"ූ","ෘ","ෙ",
-                                "ේ","ෛ","ො","ෝ","ෞ","ෟ","ෲ","ෳ","්"};
-                        for (String nonStartable: nonStartables ) {
-                            if(nextText!= null && nextText.startsWith(nonStartable)){
-                                run.setText(nonStartable,-1);
-                                nextText  = nextText.substring(1);
-                                nextRun.setText(nextText,0);
-                            }
-                        }
+                    String nextText = run.getText(0);
+                    if(nextText == null){
+                        nextText = "";g
+                    }
+                        nextText = nextText.replaceAll("÷ු", "ද");
+//                        if(nextText!=null && nextText.equals("ිුී")){
+//                            nextRun.setText("ඳි");
+//                        }
+                        nextText = nextText.replaceAll("ිුී", "ඳි");
+                        run.setText(nextText, 0);
 
-                        }
-                    i++;
-                }
+//                    if(i+1 < runsLength){
+//                        XWPFRun nextRun = runs.get(i+1);
+//                        String nextText = nextRun.getText(0);
+//                        String[] nonStartables = { "ා","ැ","ෑ","ි","ී","ු" ,"ූ","ෘ","ෙ",
+//                                "ේ","ෛ","ො","ෝ","ෞ","ෟ","ෲ","ෳ","්"};
+//                        for (String nonStartable: nonStartables ) {
+//                            if(nextText!= null && nextText.startsWith(nonStartable)){
+//                                run.setText(nonStartable,-1);
+//                                nextText  = nextText.substring(1);
+//                                nextRun.setText(nextText,0);
+//                            }
+//                        }
+
+
+
+//                    }
+
             }
 
 //                for (XWPFRun r : runs) {

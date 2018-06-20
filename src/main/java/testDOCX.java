@@ -35,7 +35,7 @@ public class testDOCX {
         FileInputStream fileInputStream = null;
         try {
 //            fileInputStream = new FileInputStream(file.getAbsolutePath());
-                fileInputStream = new FileInputStream("/home/gayan/Desktop/CiperLabs/UnicodeTranslator/docs/T_S Documents/Paper Ad/Deepavali ad/deepavali-T.docx");
+                fileInputStream = new FileInputStream("/home/gayan/Desktop/CiperLabs/UnicodeConverter/sin-tam-eng-මුල සිට.docx");
             try {
                 XWPFDocument docx = new XWPFDocument(fileInputStream);
                 WDXToUnicode docxConverter = new WDXToUnicode(docx);
