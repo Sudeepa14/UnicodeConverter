@@ -413,7 +413,7 @@ public class FMAbhaya_UCSC {
 		text = text.replaceAll("‚", "ණි");
 		text = text.replaceAll("þ", "ඡ්");
 		text = text.replaceAll("Ü", "ට්");
-		text = text.replaceAll("Ù", "ඕ");
+		text = text.replaceAll("Ù", "ඞ්");
 		text = text.replaceAll("õ", "ව්");
 		text = text.replaceAll("ò", "ඹ්");
 		text = text.replaceAll("ï", "ම්");
