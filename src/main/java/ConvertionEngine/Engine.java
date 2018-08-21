@@ -91,7 +91,7 @@ public class Engine {
             return new String[]{unicodeText,sinhalaUnicodeFont};
 
         }
-        else if (font.equals("FMAbhaya")|| font.equals("FMAbabld") ){
+        else if (font.equals("FMAbhaya")|| font.equals("FMAbabld") || font.equals("FMAbabldBold") || font.equals("FMAbhayax") || font.equals("FMEmaneex")|| font.equals("FMDeranax")){
 
             tamilLastCharError1 = false;
             tamilLastCharError2 = false;

@@ -1,14 +1,10 @@
 package PDF;
 
 import ConvertionEngine.Engine;
-
 import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.parser.ImageRenderInfo;
 import com.itextpdf.text.pdf.parser.PdfReaderContentParser;
 import com.itextpdf.text.pdf.parser.SimpleTextExtractionStrategy;
 import com.itextpdf.text.pdf.parser.TextExtractionStrategy;
-import com.itextpdf.text.pdf.parser.TextRenderInfo;
-
 import org.apache.poi.xwpf.usermodel.BreakType;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
@@ -43,71 +39,21 @@ public class PDFToUnicodeiText {
             PdfReaderContentParser parser = new PdfReaderContentParser(reader);
             for (int i = 1; i <= reader.getNumberOfPages(); i++) {
                 TextExtractionStrategy strategy =
-                        parser.processContent(i, new frontDetecStrategy());
+                        parser.processContent(i, new SimpleTextExtractionStrategy());
                 String text = strategy.getResultantText();
-//                String[] convertedText = convertionEngine.toUnicode(text,"FMAbhaya");
+                String[] convertedText = convertionEngine.toUnicode(text,"FMAbhaya");
 
                 XWPFParagraph p = doc.createParagraph();
                 XWPFRun run = p.createRun();
                 run.getCTR().setRPr(sinhalaUnicodeCTRPr);
-                run.setText(text);
+                run.setText(convertedText[0]);
                 run.addBreak(BreakType.PAGE);
             }
-            FileOutputStream out = new FileOutputStream("pdf1.docx");
+            FileOutputStream out = new FileOutputStream("pdf.docx");
             doc.write(out);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-}
-class frontDetecStrategy implements TextExtractionStrategy{
-    private String combText="";
-    private String text;
-    private Engine convertionEngine = new Engine();
-	@Override
-	public void beginTextBlock() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void renderText(TextRenderInfo renderInfo) {
-		// TODO Auto-generated method stub
-		String combinedFont=renderInfo.getFont().getPostscriptFontName();
-//		System.out.println(combinedFont);
-		String[] fontList=combinedFont.split("\\+");
-		String font=fontList[0];
-		if(fontList.length>1){
-			font=fontList[1];
-		}
-//		System.out.println(font);
-		String text=renderInfo.getText();
-		String[] cnvtText=convertionEngine.toUnicode(text,font);
-//		System.out.println(cnvtText[0]);
-		combText+=cnvtText[0];
-	}
-
-	@Override
-	public void endTextBlock() {
-		// TODO Auto-generated method stub
-	
-		
-	}
-
-	@Override
-	public void renderImage(ImageRenderInfo renderInfo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public String getResultantText() {
-		// TODO Auto-generated method stub
-		String tempText=combText;
-		combText="";
-//		System.out.println(tempText);
-		return tempText;
-	}
-	
 }
