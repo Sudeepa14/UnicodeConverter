@@ -28,29 +28,34 @@ public class PDFToUnicodeiText {
 
     public void startConvertioin(File file){
 
-        XWPFDocument doc = new XWPFDocument();
+//      XWPFDocument doc = new XWPFDocument();
         String pdf = file.getAbsolutePath();
         Engine convertionEngine = new Engine();
+        //Sinhala fonts
         CTRPr sinhalaUnicodeCTRPr =  CTRPr.Factory.newInstance();                        // Set All types of fonts for sinhala types
-        CTFonts fonts = CTFonts.Factory.newInstance();
-        fonts.setAscii("Iskoola Pota");
-        fonts.setHAnsi("Iskoola Pota");
-        fonts.setCs("Iskoola Pota");
-        sinhalaUnicodeCTRPr.setRFonts(fonts);
+        CTFonts sinfonts = CTFonts.Factory.newInstance();
+        sinfonts.setAscii("Iskoola Pota");
+        sinfonts.setHAnsi("Iskoola Pota");
+        sinfonts.setCs("Iskoola Pota");
+        //Tamil fonts
+        CTRPr tamilUnicodeCTRPr =  CTRPr.Factory.newInstance();                        // Set All types of fonts for sinhala types
+        CTFonts tamfonts = CTFonts.Factory.newInstance();
+        tamfonts.setAscii("Lalatha");
+        tamfonts.setHAnsi("Lalatha");
+        tamfonts.setCs("Lalatha");
+        tamilUnicodeCTRPr.setRFonts(tamfonts);
 
         try {
             PdfReader reader  = new PdfReader(pdf);
+            XWPFDocument doc = new XWPFDocument(); //a document for 
             PdfReaderContentParser parser = new PdfReaderContentParser(reader);
             for (int i = 1; i <= reader.getNumberOfPages(); i++) {
+            	XWPFParagraph p = doc.createParagraph();
+	            XWPFRun run = p.createRun();
+//	            run.getCTR().setRPr(sinhalaUnicodeCTRPr);
                 TextExtractionStrategy strategy =
-                        parser.processContent(i, new frontDetecStrategy());
-                String text = strategy.getResultantText();
-//                String[] convertedText = convertionEngine.toUnicode(text,"FMAbhaya");
-
-                XWPFParagraph p = doc.createParagraph();
-                XWPFRun run = p.createRun();
-                run.getCTR().setRPr(sinhalaUnicodeCTRPr);
-                run.setText(text);
+                        parser.processContent(i, new frontDetecStrategy(run,sinhalaUnicodeCTRPr,tamilUnicodeCTRPr));
+//                String text = strategy.getResultantText();
                 run.addBreak(BreakType.PAGE);
             }
             FileOutputStream out = new FileOutputStream("pdf1.docx");
@@ -64,7 +69,17 @@ public class PDFToUnicodeiText {
 class frontDetecStrategy implements TextExtractionStrategy{
     private String combText="";
     private String text;
-    private Engine convertionEngine = new Engine();
+    private Engine convertionEngine = new Engine(); //engine
+    private CTRPr sinhalaUnicodeCTRPr;
+    private CTRPr  tamilUnicodeCTRPr;
+    private XWPFParagraph p;
+    private XWPFRun run;
+    public frontDetecStrategy(XWPFRun run,CTRPr sinhalaUnicodeCTRPr,CTRPr tamilUnicodeCTRPr){
+    	this.sinhalaUnicodeCTRPr=sinhalaUnicodeCTRPr;
+    	this.tamilUnicodeCTRPr=tamilUnicodeCTRPr;
+    	this.run=run;
+ 
+    }
 	@Override
 	public void beginTextBlock() {
 		// TODO Auto-generated method stub
@@ -84,8 +99,25 @@ class frontDetecStrategy implements TextExtractionStrategy{
 //		System.out.println(font);
 		String text=renderInfo.getText();
 		String[] cnvtText=convertionEngine.toUnicode(text,font);
-//		System.out.println(cnvtText[0]);
-		combText+=cnvtText[0];
+//		System.out.println(cnvtText[1]);
+		if(cnvtText[1]=="SINHALA"){
+			run.getCTR().setRPr(sinhalaUnicodeCTRPr);
+		}
+		else if(cnvtText[1]=="TAMIL"){
+			run.getCTR().setRPr(tamilUnicodeCTRPr);
+		}
+		else{
+//			 System.out.println("other font detected");
+			 CTRPr otherUnicodeCTRPr =  CTRPr.Factory.newInstance();                        // Set All types of fonts for sinhala types
+		     CTFonts otherfonts = CTFonts.Factory.newInstance();
+		     otherfonts.setAscii("Iskoola Pota");
+		     otherfonts.setHAnsi("Iskoola Pota");
+		     otherfonts.setCs("Iskoola Pota");
+		     run.getCTR().setRPr(otherUnicodeCTRPr);
+		}
+		run.setText(cnvtText[0]);
+//		run.addBreak(BreakType.COLUMN);
+
 	}
 
 	@Override
@@ -108,6 +140,10 @@ class frontDetecStrategy implements TextExtractionStrategy{
 		combText="";
 //		System.out.println(tempText);
 		return tempText;
+	}
+	public static XWPFDocument getDocument(){
+		return null;
+		
 	}
 	
 }
