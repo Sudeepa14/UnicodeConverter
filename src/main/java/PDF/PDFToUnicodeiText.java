@@ -38,11 +38,11 @@ public class PDFToUnicodeiText {
         sinfonts.setHAnsi("Iskoola Pota");
         sinfonts.setCs("Iskoola Pota");
         //Tamil fonts
-        CTRPr tamilUnicodeCTRPr =  CTRPr.Factory.newInstance();                        // Set All types of fonts for sinhala types
+        CTRPr tamilUnicodeCTRPr =  CTRPr.Factory.newInstance();                        // Set All types of fonts for tamil types
         CTFonts tamfonts = CTFonts.Factory.newInstance();
-        tamfonts.setAscii("Lalatha");
-        tamfonts.setHAnsi("Lalatha");
-        tamfonts.setCs("Lalatha");
+        tamfonts.setAscii("Latha");
+        tamfonts.setHAnsi("Latha");
+        tamfonts.setCs("Latha");
         tamilUnicodeCTRPr.setRFonts(tamfonts);
 
         try {
